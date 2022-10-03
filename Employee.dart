@@ -13,16 +13,12 @@ class Employees {
   String? lastName;
   double? salary;
 
-  Employees() {
-    this.firstName = "";
-    this.lastName = "";
-    this.salary = 0.0;
-  }
-  Employees.withArgs(firstName, lastName, salary) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.salary = salary;
-  }
+  // Employees() {
+  //   this.firstName = "";
+  //   this.lastName = "";
+  //   this.salary = 0.0;
+  // }
+  Employees([this.firstName, this.lastName, this.salary]);
 
   getFirstName() => this.firstName;
 
@@ -43,7 +39,8 @@ class Employees {
 }
 
 void main() {
-  Employees emp1 = new Employees.withArgs('Ahmed', 'Hammad', 1119.9);
+  Employees emp1 = new Employees('Ahmed', 'Hammad', 1119.9);
+
   print("The First employee is " +
       emp1.getFirstName() +
       " " +
@@ -52,8 +49,8 @@ void main() {
       emp1.getSalary().toString());
 
   Employees emp2 = new Employees();
-  emp2.setFirstName('Second');
-  emp2.setLastName('Name');
+  emp2.setFirstName('Tamer');
+  emp2.setLastName('Kaled');
   emp2.setSalary(-1009.98);
   print("The Second employee is " +
       emp2.getFirstName() +
