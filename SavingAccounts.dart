@@ -18,7 +18,7 @@ print the new balances for both savers.
 */
 
 class SavingsAccount {
-  double annualInterestRate = 0.0;
+  static double annualInterestRate = 0.0;
   double _savingsBalance = 0.0;
 
   double calculateMonthlyInterest() {
@@ -26,8 +26,8 @@ class SavingsAccount {
     return _savingsBalance;
   }
 
-  modifyInterestRate(double newValue) {
-    this.annualInterestRate = newValue;
+  static void modifyInterestRate(double newValue) {
+    annualInterestRate = newValue;
   }
 }
 //Test the class
@@ -38,16 +38,14 @@ void main() {
   saver1._savingsBalance = 2000.00;
   saver2._savingsBalance = 3000.00;
 
-  saver1.modifyInterestRate(0.04);
-  saver2.modifyInterestRate(0.04);
+  SavingsAccount.modifyInterestRate(0.04);
 
   print('The New Balance for Saver 1 after (4%) Monthly Interest is  ' +
       saver1.calculateMonthlyInterest().toString());
   print('The New Balance for Saver 2 after (4%) Monthly Interest is  ' +
       saver2.calculateMonthlyInterest().toString());
 
-  saver1.modifyInterestRate(0.05);
-  saver2.modifyInterestRate(0.05);
+  SavingsAccount.modifyInterestRate(0.05);
 
   print('The New Balance for Saver 1 after (5%)  Monthly Interest is  ' +
       saver1.calculateMonthlyInterest().toString());
